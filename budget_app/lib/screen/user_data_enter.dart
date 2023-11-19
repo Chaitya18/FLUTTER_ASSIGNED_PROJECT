@@ -18,15 +18,14 @@ class _User_Data_EntryState extends State<User_Data_Entry> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Budget Recorder",
-          style: TextStyle(color: Colors.black),
-        ),
+        backgroundColor: Colors.orange,
+        title: Text("Budget Recorder", style: TextStyle(color: Colors.black)),
       ),
-      body: SizedBox(
+      body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
+              margin: EdgeInsets.all(10),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
@@ -40,6 +39,7 @@ class _User_Data_EntryState extends State<User_Data_Entry> {
               ),
             ),
             Container(
+              margin: EdgeInsets.all(10),
               child: TextField(
                   controller: salary,
                   onChanged: (s) => salary.text = s,
@@ -48,6 +48,7 @@ class _User_Data_EntryState extends State<User_Data_Entry> {
                   )),
             ),
             Container(
+              margin: EdgeInsets.all(10),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
@@ -61,6 +62,7 @@ class _User_Data_EntryState extends State<User_Data_Entry> {
               ),
             ),
             Container(
+              margin: EdgeInsets.all(10),
               child: TextField(
                   controller: rent,
                   onChanged: (r) => rent.text = r,
@@ -69,6 +71,7 @@ class _User_Data_EntryState extends State<User_Data_Entry> {
                   )),
             ),
             Container(
+              margin: EdgeInsets.all(10),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
@@ -82,6 +85,7 @@ class _User_Data_EntryState extends State<User_Data_Entry> {
               ),
             ),
             Container(
+              margin: EdgeInsets.all(10),
               child: TextField(
                   controller: foodexp,
                   onChanged: (fe) => foodexp.text = fe,
@@ -90,6 +94,7 @@ class _User_Data_EntryState extends State<User_Data_Entry> {
                   )),
             ),
             Container(
+              margin: EdgeInsets.all(10),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
@@ -103,6 +108,7 @@ class _User_Data_EntryState extends State<User_Data_Entry> {
               ),
             ),
             Container(
+              margin: EdgeInsets.all(10),
               child: TextField(
                   controller: transport,
                   onChanged: (t) => transport.text = t,
@@ -111,6 +117,7 @@ class _User_Data_EntryState extends State<User_Data_Entry> {
                   )),
             ),
             Container(
+              margin: EdgeInsets.all(10),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
@@ -124,6 +131,7 @@ class _User_Data_EntryState extends State<User_Data_Entry> {
               ),
             ),
             Container(
+              margin: EdgeInsets.all(10),
               child: TextField(
                   controller: ipremium,
                   onChanged: (ip) => ipremium.text = ip,
@@ -132,6 +140,7 @@ class _User_Data_EntryState extends State<User_Data_Entry> {
                   )),
             ),
             Container(
+              margin: EdgeInsets.all(10),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
@@ -145,6 +154,7 @@ class _User_Data_EntryState extends State<User_Data_Entry> {
               ),
             ),
             Container(
+              margin: EdgeInsets.all(10),
               child: TextField(
                   controller: pexpense,
                   onChanged: (pe) => pexpense.text = pe,
@@ -153,6 +163,7 @@ class _User_Data_EntryState extends State<User_Data_Entry> {
                   )),
             ),
             Container(
+              margin: EdgeInsets.all(10),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
