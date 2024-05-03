@@ -1,3 +1,4 @@
+import 'package:add_comma/add_comma.dart';
 import 'package:flutter/material.dart';
 
 class User_Data_Entry extends StatefulWidget {
@@ -14,6 +15,7 @@ class _User_Data_EntryState extends State<User_Data_Entry> {
   TextEditingController transport = TextEditingController(); //Transport Expense
   TextEditingController ipremium = TextEditingController(); //Insurance  Premium
   TextEditingController pexpense = TextEditingController(); //Personal Expense
+  final putCommaIndian = addCommasIndian();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +44,12 @@ class _User_Data_EntryState extends State<User_Data_Entry> {
               margin: EdgeInsets.all(10),
               child: TextField(
                   controller: salary,
-                  onChanged: (s) => salary.text = s,
+                  onEditingComplete: () {
+                    setState(() {
+                      salary.text =
+                          putCommaIndian(int.parse(salary.text.toString()))!;
+                    });
+                  },
                   decoration: InputDecoration(
                     labelText: 'Enter Salary',
                   )),
@@ -65,7 +72,6 @@ class _User_Data_EntryState extends State<User_Data_Entry> {
               margin: EdgeInsets.all(10),
               child: TextField(
                   controller: rent,
-                  onChanged: (r) => rent.text = r,
                   decoration: InputDecoration(
                     labelText: 'Enter Rent',
                   )),
@@ -88,7 +94,6 @@ class _User_Data_EntryState extends State<User_Data_Entry> {
               margin: EdgeInsets.all(10),
               child: TextField(
                   controller: foodexp,
-                  onChanged: (fe) => foodexp.text = fe,
                   decoration: InputDecoration(
                     labelText: 'Enter Food Expenditure',
                   )),
@@ -111,7 +116,6 @@ class _User_Data_EntryState extends State<User_Data_Entry> {
               margin: EdgeInsets.all(10),
               child: TextField(
                   controller: transport,
-                  onChanged: (t) => transport.text = t,
                   decoration: InputDecoration(
                     labelText: 'Enter Transport Cost',
                   )),
@@ -134,7 +138,6 @@ class _User_Data_EntryState extends State<User_Data_Entry> {
               margin: EdgeInsets.all(10),
               child: TextField(
                   controller: ipremium,
-                  onChanged: (ip) => ipremium.text = ip,
                   decoration: InputDecoration(
                     labelText: 'Enter Insurance Premium',
                   )),
@@ -157,7 +160,6 @@ class _User_Data_EntryState extends State<User_Data_Entry> {
               margin: EdgeInsets.all(10),
               child: TextField(
                   controller: pexpense,
-                  onChanged: (pe) => pexpense.text = pe,
                   decoration: InputDecoration(
                     labelText: 'Enter Personal Expenditure',
                   )),
@@ -173,18 +175,20 @@ class _User_Data_EntryState extends State<User_Data_Entry> {
                         onPressed: () {
                           showDialog(
                             context: context,
-                            builder: (context) {
-                              return AlertDialog(
-                                content: Column(children: [
-                                  Text("Salary : " + salary.text),
+                            builder: (context) => SizedBox(
+                              height: 150,
+                              child: AlertDialog(
+                                title: Column(children: [
+                                  Text("Salary : " +
+                                      '${putCommaIndian(int.parse(salary.text.toString()))}'),
                                   Text("Rent : " + rent.text),
                                   Text("Food Expense : " + foodexp.text),
                                   Text("Transport Expense : " + transport.text),
                                   Text("Insurance Premium : " + ipremium.text),
                                   Text("Personal Expense : " + pexpense.text),
                                 ]),
-                              );
-                            },
+                              ),
+                            ),
                           );
                         },
                         child: Text(
